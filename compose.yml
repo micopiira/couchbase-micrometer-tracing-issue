@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  couchbase:
+    image: couchbase
+    ports:
+      - "8091-8096:8091-8096"
+      - "11210-11211:11210-11211"
+  jaeger:
+    image: jaegertracing/all-in-one
+    ports:
+      - "16686:16686" # the jaeger UI
+      - "4317:4317" # the OpenTelemetry collector grpc
+    environment:
+      - COLLECTOR_OTLP_ENABLED=true
