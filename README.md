@@ -19,3 +19,17 @@
 4. Visit http://localhost:8080/ (The Spring Boot app)
 
 5. Visit to http://localhost:16686/ (Jaeger UI) and see the incorrect traces
+
+Expected:
+
+- http get /
+  - upsert
+    - request_encoding
+    - dispatch_to_server
+
+Actual:
+
+- http get /
+  - upsert
+    - dispatch_to_server
+  - request_encoding
